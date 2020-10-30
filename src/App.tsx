@@ -7,19 +7,21 @@
  */
 
 import React, { ReactNode } from "react";
-import { SafeAreaView, ScrollView, StatusBar } from "react-native";
-import Test from "@/Test";
+import { SafeAreaView, StatusBar } from "react-native";
+import { Provider } from "react-redux";
+import getStore from "./redux/configureStore";
+import Main from "./screens/Main";
 
 const App: () => ReactNode = () => {
+  const store = getStore();
+
   return (
-    <>
+    <Provider store={store}>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
-        <ScrollView contentInsetAdjustmentBehavior="automatic">
-          <Test />
-        </ScrollView>
+        <Main />
       </SafeAreaView>
-    </>
+    </Provider>
   );
 };
 
