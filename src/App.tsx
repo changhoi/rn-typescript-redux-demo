@@ -10,7 +10,8 @@ import React, { ReactNode } from "react";
 import { SafeAreaView, StatusBar } from "react-native";
 import { Provider } from "react-redux";
 import getStore from "./redux/configureStore";
-import Main from "./screens/Main";
+import Counter from "./screens/Counter";
+import Receipe from "./screens/Receipe";
 
 const App: () => ReactNode = () => {
   const store = getStore();
@@ -19,7 +20,7 @@ const App: () => ReactNode = () => {
     <Provider store={store}>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
-        <Main />
+        <Receipe />
       </SafeAreaView>
     </Provider>
   );
