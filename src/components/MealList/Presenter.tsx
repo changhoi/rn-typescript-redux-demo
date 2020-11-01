@@ -12,7 +12,7 @@ export default (props: Props) => {
   const { list, onClickMeal } = props;
   return (
     <TableWrapper>
-      <Row disabled>
+      <Header disabled>
         <IdColumn>
           <Text>ID</Text>
         </IdColumn>
@@ -22,14 +22,17 @@ export default (props: Props) => {
         <CategoryColumn>
           <Text>카테고리</Text>
         </CategoryColumn>
-      </Row>
+      </Header>
+
+
+
       {list.map((meal) => (
         <Row onPress={onClickMeal(meal.id)}>
           <IdColumn>
             <Text>{meal.id}</Text>
           </IdColumn>
           <NameColumn>
-            <Text>{meal.name}</Text>
+            <Text numberOfLines={2} ellipsizeMode="tail">{meal.name}</Text>
           </NameColumn>
           <CategoryColumn>
             <Text>{meal.category}</Text>
@@ -50,14 +53,21 @@ const Row = styled.TouchableOpacity`
   width: 100%;
   flex-direction: row;
   justify-content: space-around;
+  align-items: center;
+  height: 40px;
+  border: 1px solid black;
 `;
 
+const Header = styled(Row)`
+  background: #CABACE;
+`
+
 const IdColumn = styled.View`
-  flex: 0.5;
+  flex: 1;
 `;
 
 const NameColumn = styled.View`
-  flex: 3;
+  flex: 3.5;
 `;
 
 const CategoryColumn = styled.View`

@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "react-native";
+import { Text } from "react-native";
 import styled from "styled-components/native";
 
 interface Props {
@@ -11,11 +11,37 @@ interface Props {
 export default (props: Props) => {
   const { value, onChangeValue, onSearch } = props;
   return (
-    <>
+    <Search>
       <SearchInput onChangeText={onChangeValue} value={value} />
-      <Button title="Search" onPress={onSearch} />
-    </>
+      <SearchButton onPress={onSearch}>
+        <Text>Search</Text>
+      </SearchButton>
+    </Search>
   );
 };
 
-const SearchInput = styled.TextInput``;
+
+const Search = styled.View`
+  padding: 30px;
+  justify-content: center;
+  align-items: center;
+`;
+
+const SearchButton = styled.TouchableOpacity`
+  padding: 10px;
+  margin-top: 10px;
+  width: 40%;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background: #EDCBED;
+`;
+
+
+const SearchInput = styled.TextInput`
+  border: 1px solid black;
+  border-radius: 15px;
+  width: 80%;
+  margin: 0 auto;
+
+`;
